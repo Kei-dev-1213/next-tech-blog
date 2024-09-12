@@ -1,11 +1,11 @@
-import Title from "./components/Title";
+import PostOnQiita from "./_components/ui/top/PostOnQiita";
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
-      <Title></Title>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <button className="btn">Button</button>
+      <div className="mt-16">
+        <PostOnQiita />
+      </div>
     </>
   );
 }
