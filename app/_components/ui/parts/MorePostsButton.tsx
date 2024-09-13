@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 
-const MorePostsButton: FC<{ path: string }> = ({ path }) => {
+const MorePostsButton: FC<{ path: string }> = memo(({ path }) => {
   const router = useRouter();
 
   return (
@@ -12,6 +12,6 @@ const MorePostsButton: FC<{ path: string }> = ({ path }) => {
       もっと見る ➔
     </button>
   );
-};
+});
 
 export default MorePostsButton;

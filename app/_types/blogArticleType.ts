@@ -13,8 +13,9 @@ class EyecatchType {
 export class BlogArticleType {
   id: string;
   created_at: string;
-  updated_at: string;
-  published_at: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
   revisedAt: string;
   title: string;
   content: string;
@@ -24,13 +25,20 @@ export class BlogArticleType {
 
   constructor(data: any) {
     this.id = data.id;
-    this.created_at = data.createdAt;
-    this.updated_at = data.updatedAt;
-    this.published_at = data.publishedAt;
+    this.updatedAt = data.updatedAt;
+    this.publishedAt = data.publishedAt;
     this.revisedAt = data.revisedAt;
     this.title = data.title;
     this.content = data.content;
     this.eyecatch = data.eyecatch ? new EyecatchType(data.eyecatch) : null;
     this.category = data.category;
+  }
+
+  getThumbnailURL() {
+    return this.eyecatch.url ?? "";
+  }
+
+  getCreated_at() {
+    return this.createdAt;
   }
 }

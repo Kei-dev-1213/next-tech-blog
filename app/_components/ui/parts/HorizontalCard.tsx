@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { CONSTANTS } from "../../../_constants";
 import { QiitaArticleType } from "../../../_types/qiitaArticleType";
 import { BlogArticleType } from "../../../_types/blogArticleType";
 

@@ -12,7 +12,7 @@ const VerticalCard: FC<{ article: QiitaArticleType | BlogArticleType }> = ({ art
       </figure>
       <div className="card-body py-5 h-36 hover:bg-gray-50 transition-all">
         <span className="text-sm text-gray-500">{new Date(created_at).toLocaleString()}</span>
-        <h2 className="card-title">{title}</h2>
+        <h2 className="card-title overflow-hidden text-ellipsis">{title}</h2>
       </div>
     </div>
   );

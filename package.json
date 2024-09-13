@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/jest": "^29.5.12",
+    "html-react-parser": "^5.1.16",
     "microcms-js-sdk": "^3.1.2",
     "next": "latest",
     "react": "^18.2.0",

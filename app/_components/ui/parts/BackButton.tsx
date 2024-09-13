@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 
-const BackButton: FC = () => {
+const BackButton: FC = memo(() => {
   const router = useRouter();
 
   return (
@@ -12,6 +12,6 @@ const BackButton: FC = () => {
       戻る
     </button>
   );
-};
+});
 
 export default BackButton;

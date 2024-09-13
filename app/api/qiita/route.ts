@@ -16,7 +16,6 @@ export async function GET(request: Request, response: NextApiResponse) {
     },
   });
   const datas = (await res.json()) as QiitaArticleType[];
-  // サムネイルの設定
-  datas.forEach((data) => (data.thumbnail = CONSTANTS.THUMBNAIL_IMAGE_URL));
+  datas.filter((data) => (data.thumbnail = CONSTANTS.THUMBNAIL_IMAGE_URL));
   return NextResponse.json(datas);
 }

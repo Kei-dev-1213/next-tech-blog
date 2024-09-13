@@ -1,5 +1,3 @@
-import { CONSTANTS } from "../_constants";
-
 class UserType {
   description: string;
   facebook_id: string;
@@ -59,6 +57,7 @@ export class QiitaArticleType {
   organization_url_name: string;
   slide: boolean;
   thumbnail: string;
+  eyecatch: { url: string };
 
   constructor(data: any) {
     this.rendered_body = data.rendered_body;
@@ -80,5 +79,6 @@ export class QiitaArticleType {
     this.team_membership = data.team_membership;
     this.organization_url_name = data.organization_url_name;
     this.slide = data.slide;
+    this.eyecatch = data.eyecatch;
   }
 }
