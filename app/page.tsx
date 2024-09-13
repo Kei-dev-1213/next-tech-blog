@@ -1,11 +1,11 @@
-import PostOnQiita from "./_components/ui/top/PostOnQiita";
+import PostsOnBlog from "./_components/ui/pages/PostsOnBlog";
+import PostOnQiita from "./_components/ui/pages/PostsOnQiita";
 
 export default async function Page() {
   return (
     <>
-      <div className="mt-16">
-        <PostOnQiita />
-      </div>
+      <PostOnQiita />
+      <PostsOnBlog />
     </>
   );
 }
