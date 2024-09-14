@@ -4,8 +4,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "test": "jest",
-    "prepare": "husky"
+    "test": "jest"
   },
   "dependencies": {
     "@types/jest": "^29.5.12",
