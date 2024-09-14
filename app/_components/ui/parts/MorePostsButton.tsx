@@ -8,7 +8,7 @@ const MorePostsButton: FC<{ path: string }> = memo(({ path }) => {
   const router = useRouter();
 
   return (
-    <button className="btn btn-accent" onClick={() => router.push(path)}>
+    <button className="btn btn-accent" data-testid="more-show-button" onClick={() => router.push(path)}>
       もっと見る ➔
     </button>
   );

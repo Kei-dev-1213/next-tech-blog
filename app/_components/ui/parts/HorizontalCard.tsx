@@ -11,12 +11,17 @@ const HorizontalCard: FC<{ article: QiitaArticleType | BlogArticleType }> = ({ a
           src={thumbnail}
           alt={title}
           className="hover:opacity-80 hover:scale-110 transition-all duration-700 h-[150px]"
+          data-testid="article-image"
         />
       </figure>
       <div className="card-body hover:bg-gray-50 transition-all">
         <div className="flex flex-col h-full justify-center gap-y-4">
-          <h2 className="card-title">{title}</h2>
-          <span className="text-sm text-gray-500">{new Date(created_at).toLocaleString()}</span>
+          <h2 className="card-title" data-testid="article-title">
+            {title}
+          </h2>
+          <span className="text-sm text-gray-500" data-testid="article-date">
+            {new Date(created_at).toLocaleString()}
+          </span>
         </div>
       </div>
     </div>

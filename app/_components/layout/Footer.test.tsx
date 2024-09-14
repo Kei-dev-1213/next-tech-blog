@@ -1,12 +1,12 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Header from "./Header";
+import Footer from "./Footer";
 
 describe("初期表示テスト", () => {
   test("[正常系]タイトルが表示されること", async () => {
-    render(<Header />);
+    render(<Footer />);
 
     // 検証
-    expect(screen.getByTestId("header-title")).toHaveTextContent("Next-Tech-Blog");
+    expect(screen.getByTestId("footer-content")).toHaveTextContent("© Kei-dev-1213 all rights reserved.");
   });
 });

@@ -1,5 +1,4 @@
-import React from "react";
-import { CONSTANTS } from "../../../_constants";
+import React, { FC } from "react";
 import PostTitle from "../parts/PostTitle";
 import BackButton from "../parts/BackButton";
 import HorizontalCard from "../parts/HorizontalCard";
@@ -7,11 +6,7 @@ import { BlogArticleType } from "../../../_types/blogArticleType";
 import Link from "next/link";
 import WhileInView from "../parts/WhileInView";
 
-const AllPostsOnBlog = async () => {
-  // データ取得
-  const res = await fetch(`${CONSTANTS.API_ENDPOINT_PREFIX}/api/blogs?postsNum=10`, { cache: "no-store" });
-  const articles = (await res.json()) as BlogArticleType[];
-
+const AllPostsOnBlog: FC<{ articles: BlogArticleType[] }> = ({ articles }) => {
   return (
     <>
       <div className="flex justify-between">

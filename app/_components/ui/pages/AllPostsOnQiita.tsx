@@ -1,5 +1,4 @@
-import React from "react";
-import { CONSTANTS } from "../../../_constants";
+import React, { FC } from "react";
 import PostTitle from "../parts/PostTitle";
 import { QiitaArticleType } from "../../../_types/qiitaArticleType";
 import BackButton from "../parts/BackButton";
@@ -7,11 +6,7 @@ import HorizontalCard from "../parts/HorizontalCard";
 import Link from "next/link";
 import WhileInView from "../parts/WhileInView";
 
-const AllPostsOnQiita = async () => {
-  // データ取得
-  const res = await fetch(`${CONSTANTS.API_ENDPOINT_PREFIX}/api/qiita?postsNum=10`, { cache: "no-store" });
-  const articles = (await res.json()) as QiitaArticleType[];
-
+const AllPostsOnQiita: FC<{ articles: QiitaArticleType[] }> = ({ articles }) => {
   return (
     <>
       <div className="flex justify-between">

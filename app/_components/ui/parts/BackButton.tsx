@@ -8,7 +8,7 @@ const BackButton: FC = memo(() => {
   const router = useRouter();
 
   return (
-    <button className="btn btn-primary" onClick={() => router.push("/")}>
+    <button className="btn btn-primary" data-testid="more-back-button" onClick={() => router.push("/")}>
       戻る
     </button>
   );
