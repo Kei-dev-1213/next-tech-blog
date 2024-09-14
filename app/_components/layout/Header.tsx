@@ -11,7 +11,7 @@ const Header = () => {
           className={`text-5xl pl-8 ${sacramento.className} inline-block hover:opacity-70`}
           data-testid="header-title"
         >
-          <strong>Next-Tech-Blog3</strong>
+          <strong>Next-Tech-Blog4</strong>
         </h1>
       </Link>
     </div>
