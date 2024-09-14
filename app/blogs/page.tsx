@@ -1,16 +1,33 @@
-import AllPostsOnBlog from "../_components/ui/pages/AllPostsOnBlog";
-import { CONSTANTS } from "../_constants";
-import { BlogArticleType } from "../_types/blogArticleType";
+"use client";
 
-export default async function Page() {
-  // データ取得
-  const res = await fetch(`${CONSTANTS.API_ENDPOINT_PREFIX}/api/blogs?postsNum=10`, { cache: "no-store" });
-  const articles = (await res.json()) as BlogArticleType[];
+import { useEffect, useState } from "react";
+import AllPostsOnBlog from "../_components/ui/pages/AllPostsOnBlog";
+import { BlogArticleType } from "../_types/blogArticleType";
+import Loading from "../loading";
+
+export default function Page() {
+  const [blogArticles, setBlogArticles] = useState<BlogArticleType[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    (async () => {
+      // データ取得
+      const res = await fetch(`/api/blogs?postsNum=10`, { cache: "no-store" });
+      setBlogArticles((await res.json()) as BlogArticleType[]);
+      setLoading(false);
+    })();
+  }, []);
+
   return (
     <>
-      <div className="my-16">
-        <AllPostsOnBlog articles={articles} />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="my-16">
+          <AllPostsOnBlog articles={blogArticles} />
+        </div>
+      )}
     </>
   );
 }

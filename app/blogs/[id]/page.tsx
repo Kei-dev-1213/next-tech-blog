@@ -2,7 +2,6 @@
 
 import { useParams } from "next/navigation";
 import React, { memo, useEffect, useState } from "react";
-import { CONSTANTS } from "../../_constants";
 import { BlogArticleType } from "../../_types/blogArticleType";
 import WhileInView from "../../_components/ui/parts/WhileInView";
 import Loading from "../../loading";
@@ -18,7 +17,7 @@ const Page = memo(() => {
   useEffect(() => {
     // データ取得
     (async () => {
-      const res = await fetch(`${CONSTANTS.API_ENDPOINT_PREFIX}/api/blog?id=${params.id}`, { cache: "no-store" });
+      const res = await fetch(`/api/blog?id=${params.id}`, { cache: "no-store" });
       setArticle((await res.json()) as BlogArticleType);
     })();
   }, [params.id]);

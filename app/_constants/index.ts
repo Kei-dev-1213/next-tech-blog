@@ -1,9 +1,6 @@
 // ヘッダーの高さ
 const HEADER_HEIGHT = "150px";
 
-// APIエンドポイントURL前置詞
-const API_ENDPOINT_PREFIX = process.env.NEXT_PUBLIC_API_URL;
-
 // Qiita APIアクセストークン
 const QIITA_API_ACCESS_TOKEN = process.env.NEXT_PUBLIC_QIITA_API_ACCESS_TOKEN;
 
@@ -13,7 +10,6 @@ const THUMBNAIL_IMAGE_URL =
 
 export const CONSTANTS = {
   HEADER_HEIGHT,
-  API_ENDPOINT_PREFIX,
   QIITA_API_ACCESS_TOKEN,
   THUMBNAIL_IMAGE_URL,
 };

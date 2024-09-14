@@ -1,17 +1,33 @@
-import AllPostsOnQiita from "../_components/ui/pages/AllPostsOnQiita";
-import { CONSTANTS } from "../_constants";
-import { QiitaArticleType } from "../_types/qiitaArticleType";
+"use client";
 
-export default async function Page() {
-  // データ取得
-  const res = await fetch(`${CONSTANTS.API_ENDPOINT_PREFIX}/api/qiita?postsNum=10`, { cache: "no-store" });
-  const articles = (await res.json()) as QiitaArticleType[];
+import { useEffect, useState } from "react";
+import AllPostsOnQiita from "../_components/ui/pages/AllPostsOnQiita";
+import { QiitaArticleType } from "../_types/qiitaArticleType";
+import Loading from "../loading";
+
+export default function Page() {
+  const [qiitaArticles, setQiitaArticles] = useState<QiitaArticleType[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    (async () => {
+      // データ取得
+      const res = await fetch(`/api/qiita?postsNum=10`, { cache: "no-store" });
+      setQiitaArticles((await res.json()) as QiitaArticleType[]);
+      setLoading(false);
+    })();
+  }, []);
 
   return (
     <>
-      <div className="my-16">
-        <AllPostsOnQiita articles={articles} />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="my-16">
+          <AllPostsOnQiita articles={qiitaArticles} />
+        </div>
+      )}
     </>
   );
 }
