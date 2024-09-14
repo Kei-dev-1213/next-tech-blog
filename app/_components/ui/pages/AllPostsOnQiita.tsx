@@ -5,6 +5,7 @@ import { QiitaArticleType } from "../../../_types/qiitaArticleType";
 import BackButton from "../parts/BackButton";
 import HorizontalCard from "../parts/HorizontalCard";
 import Link from "next/link";
+import WhileInView from "../parts/WhileInView";
 
 const AllPostsOnQiita = async () => {
   // データ取得
@@ -21,7 +22,9 @@ const AllPostsOnQiita = async () => {
       <div className="grid grid-rows-1 gap-y-10 w-full">
         {articles.map((article, index) => (
           <Link href={article.url} target="_blank" key={`${article.title}_${index}`}>
-            <HorizontalCard article={article} />
+            <WhileInView>
+              <HorizontalCard article={article} />
+            </WhileInView>
           </Link>
         ))}
       </div>

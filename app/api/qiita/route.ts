@@ -15,7 +15,15 @@ export async function GET(request: Request, response: NextApiResponse) {
       Authorization: `Bearer ${CONSTANTS.QIITA_API_ACCESS_TOKEN}`,
     },
   });
-  const datas = (await res.json()) as QiitaArticleType[];
-  datas.filter((data) => (data.thumbnail = CONSTANTS.THUMBNAIL_IMAGE_URL));
-  return NextResponse.json(datas);
+
+  // OKの場合
+  if (res.ok) {
+    const datas = (await res.json()) as QiitaArticleType[];
+    datas.filter((data) => (data.thumbnail = CONSTANTS.THUMBNAIL_IMAGE_URL));
+    return NextResponse.json(datas, { status: 200 });
+  }
+
+  // NGの場合
+  console.error(await res.json());
+  return NextResponse.json({ message: "データの取得に失敗しました。" }, { status: 500 });
 }

@@ -5,6 +5,7 @@ import BackButton from "../parts/BackButton";
 import HorizontalCard from "../parts/HorizontalCard";
 import { BlogArticleType } from "../../../_types/blogArticleType";
 import Link from "next/link";
+import WhileInView from "../parts/WhileInView";
 
 const AllPostsOnBlog = async () => {
   // データ取得
@@ -21,7 +22,9 @@ const AllPostsOnBlog = async () => {
       <div className="grid grid-rows-1 gap-y-10 w-full">
         {articles.map((article, index) => (
           <Link href={`/blogs/${article.id}`} key={`${article.title}_${index}`}>
-            <HorizontalCard article={article} />
+            <WhileInView>
+              <HorizontalCard article={article} />
+            </WhileInView>
           </Link>
         ))}
       </div>
