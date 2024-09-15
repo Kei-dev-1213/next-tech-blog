@@ -2,7 +2,7 @@
 const HEADER_HEIGHT = "150px";
 
 // Qiita APIアクセストークン
-const QIITA_API_ACCESS_TOKEN = process.env.NEXT_PUBLIC_QIITA_API_ACCESS_TOKEN;
+const QIITA_API_ACCESS_TOKEN = process.env.QIITA_API_ACCESS_TOKEN;
 
 // サムネイル画像URL
 const THUMBNAIL_IMAGE_URL =
